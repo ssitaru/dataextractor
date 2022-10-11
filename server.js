@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
-
 const prisma = new PrismaClient()
 
 let app = express();
@@ -12,10 +11,10 @@ app.use(express.urlencoded({ limit: '100mb', extended: true })) // for parsing a
 
 app.get('/list', async(req, res, next) => {
   const l = await prisma.paper.findMany();
-  console.log(l);
+  res.send(l);
+
 });
 
-app.listen(8082, () => {
+app.listen(8182, () => {
   console.log("listening on :8182");
-  sess_store.sync();
 });

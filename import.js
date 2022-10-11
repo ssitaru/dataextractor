@@ -3,7 +3,8 @@ import * as csv from 'fast-csv';
 import * as fs from 'fs';
 const prisma = new PrismaClient()
 
-fs.createReadStream('./all_papers.csv')
+prisma.$queryRaw`DELETE FROM Paper`.then(() => {
+    fs.createReadStream('./all_papers.csv')
     .pipe(csv.parse({headers: true, delimiter: ';'}))
     .on('data', async(row) => {
         /**
@@ -16,12 +17,15 @@ fs.createReadStream('./all_papers.csv')
                 journal   String?
          */
         let y,m,d;
-        if(row['CreateData'])
+        if(row['CreateDate'])
         {
              [y, m, d] = row['CreateDate'].split('/');
+             y = Number.parseInt(y);
+             m = Number.parseInt(m);
+             d = Number.parseInt(d);
         }
         let o = {
-            publishedAt: (y ? new Date(y, m, d) : undefined),
+            publishedAt: (row['CreateDate'] ? new Date(y, m, d) : undefined),
             doi: row['DOI'],
             title: row['Title'],
             authors: row['Authors'],
@@ -34,3 +38,5 @@ fs.createReadStream('./all_papers.csv')
     })
     .on('error', (err) => {console.error(err)})
     .on('end', async (r) => {console.log(r); await prisma.$disconnect()});
+});
+

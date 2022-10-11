@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+
+model Paper {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  publishedAt DateTime?
+  pmid      String?
+  doi       String?
+  title     String
+  authors   String
+  abstract   String?
+  journal   String?
+  structuredData StructuredData?
+}
+
+
+model StructuredData {
+  id      Int   @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  paperId   Int @unique
+  paper   Paper    @relation(fields: [paperId], references: [id])
+  investigatedScore String?
+  scoreAbbreviation String?
+  disease String?
+  construct String?
+  subgroup String?
+  n Int?
+  isComparative Boolean @default(false)
+  isProposal Boolean @default(false)
+  comparedWith String?
+  numItems Int?
+  itemsReportedByPhysician Boolean @default(false)
+  itemsReportedByPatient Boolean @default(false)
+  itemsReportedByOther Boolean @default(false)
+  reportedMetrics String?
+  cosmin1_1 Int?
+  cosmin1_2 Int?
+  cosmin1_3 Int?
+  cosmin1_4 Int?
+  cosmin1_5 Int?
+  cosmin1_6 Int?
+  cosmin1_7 Int?
+  cosmin1_8 Int?
+  cosmin1_9 Int?
+  cosmin2_1 Int?
+  cosmin2_2 Int?
+  cosmin2_3 Int?
+  cosmin2_4 Int?
+  cosmin2_5 Int?
+  cosmin2_6 Int?
+  cosmin2_7 Int?
+  cosmin2_8 Int?
+}

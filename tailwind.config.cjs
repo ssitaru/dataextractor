@@ -2,7 +2,7 @@ module.exports = {
     mode: 'jit',
     content: [
         './index.html',
-        './src/**/*.{svelte,js,ts}',
+        './frontend/**/*.{svelte,js,ts}',
         // etc.
       ],
     plugins: [

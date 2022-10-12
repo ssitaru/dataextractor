@@ -16,16 +16,14 @@ prisma.$queryRaw`DELETE FROM Paper`.then(() => {
                 abstract   String?
                 journal   String?
          */
-        let y,m,d;
-        if(row['CreateDate'])
+        let dt;
+        if(row['Create Date'])
         {
-             [y, m, d] = row['CreateDate'].split('/');
-             y = Number.parseInt(y);
-             m = Number.parseInt(m);
-             d = Number.parseInt(d);
+             let [d, m, y] = row['Create Date'].split('/');
+             dt = new Date(y, m, d); 
         }
         let o = {
-            publishedAt: (row['CreateDate'] ? new Date(y, m, d) : undefined),
+            publishedAt: dt,
             doi: row['DOI'],
             title: row['Title'],
             authors: row['Authors'],

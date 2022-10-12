@@ -252,31 +252,45 @@ input[type="radio"]
                 <div><input type="radio" bind:group={selectedData.cosmin2_2} value={0}>NA</div>
                 <!---->
                 <div>Were the measurement conditions similar for the repeated measurements &ndash; except for the condition being evaluated as a source of variation?</div>
-                <div><input type="radio" bind:group={selectedData.cosmin2_2} value={4}>Yes</div>
-                <div><input type="radio" bind:group={selectedData.cosmin2_2} value={3}>Reason to assume</div>
-                <div><input type="radio" bind:group={selectedData.cosmin2_2} value={2}>Unclear</div>
-                <div><input type="radio" bind:group={selectedData.cosmin2_2} value={1}>No</div>
-                <div><input type="radio" bind:group={selectedData.cosmin2_2} value={0}>NA</div>
-                <!---->
-                <div>Did the professional(s) administer the measurement without knowledge of scores or values of other repeated measurement(s) in the same patients?</div>
                 <div><input type="radio" bind:group={selectedData.cosmin2_3} value={4}>Yes</div>
                 <div><input type="radio" bind:group={selectedData.cosmin2_3} value={3}>Reason to assume</div>
                 <div><input type="radio" bind:group={selectedData.cosmin2_3} value={2}>Unclear</div>
                 <div><input type="radio" bind:group={selectedData.cosmin2_3} value={1}>No</div>
-                <div></div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_3} value={0}>NA</div>
                 <!---->
-                <div>Did the professional(s) assign scores or determine values without knowledge of the scores or values of other repeated measurement(s) in the same patients?</div>
+                <div>Did the professional(s) administer the measurement without knowledge of scores or values of other repeated measurement(s) in the same patients?</div>
                 <div><input type="radio" bind:group={selectedData.cosmin2_4} value={4}>Yes</div>
                 <div><input type="radio" bind:group={selectedData.cosmin2_4} value={3}>Reason to assume</div>
                 <div><input type="radio" bind:group={selectedData.cosmin2_4} value={2}>Unclear</div>
                 <div><input type="radio" bind:group={selectedData.cosmin2_4} value={1}>No</div>
                 <div></div>
                 <!---->
-                <div>Were there any other important flaws in the design or statistical methods of the study?</div>
-                <div><input type="radio" bind:group={selectedData.cosmin2_5} value={4}>No</div>
+                <div>Did the professional(s) assign scores or determine values without knowledge of the scores or values of other repeated measurement(s) in the same patients?</div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_5} value={4}>Yes</div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_5} value={3}>Reason to assume</div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_5} value={2}>Unclear</div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_5} value={1}>No</div>
                 <div></div>
-                <div><input type="radio" bind:group={selectedData.cosmin2_5} value={2}>Minor</div>
-                <div><input type="radio" bind:group={selectedData.cosmin2_5} value={1}>Yes</div>
+                <!---->
+                <div>Were there any other important flaws in the design or statistical methods of the study?</div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_6} value={4}>No</div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_6} value={2}>Minor</div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_6} value={1}>Yes</div>
+                <div></div>
+                <!---->
+                <div>For continuous scores: was the Standard Error of Measurement (SEM), Smallest Detectable Change (SDC), Limits of Agreement (LoA) or Coefficient of Variation (CV) calculated?</div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_7} value={4}>Calc'ed, formula described</div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_7} value={3}>Calc'ed, formula not described</div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_7} value={2}>Calc'ed, but systemic difference</div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_7} value={1}>SEM based on &alpha; or other</div>
+                <div></div>
+                <!---->
+                <div>For dichotomous/nominal/ordinal scores: Was the percentage specific (e.g. positive and negative) agreement calculated?</div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_8} value={4}>Specific agreement calc'ed</div>
+                <div><input type="radio" bind:group={selectedData.cosmin2_8} value={3}>Agreement calc'ed</div>
+                <div></div>
+                <div></div>
                 <div></div>
             </div>
             <div class="mt-4"><button class="px-3 text-white bg-lightblue rounded-md" on:click={submit} title="submit">Hit it</button></div>

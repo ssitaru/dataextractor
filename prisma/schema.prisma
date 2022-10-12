@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./dev.db"
+  url      = "file:../data/papers.db"
 }
 
 
@@ -37,11 +37,11 @@ model StructuredData {
   disease String?
   construct String?
   subgroup String?
-  n Int?
+  n String?
   isComparative Boolean @default(false)
   isProposal Boolean @default(false)
   comparedWith String?
-  numItems Int?
+  numItems String?
   itemsReportedByPhysician Boolean @default(false)
   itemsReportedByPatient Boolean @default(false)
   itemsReportedByOther Boolean @default(false)

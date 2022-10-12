@@ -1,5 +1,6 @@
-<script lang="ts">
+<script type="ts">
     import './main.css';
+    import { SvelteToast, toast } from '@zerodevx/svelte-toast';
     
     interface Paper {
         id: Number,
@@ -68,7 +69,8 @@
 
     function loadData()
     {
-        fetch('/list').then((d) => d.json()).then((data) => {
+        toast.push('Data reload', {duration: 1500, theme: {'--toastBarHeight': 0}})
+        fetch('/api/list').then((d) => d.json()).then((data) => {
             papers = data;
             if(localStorage.getItem('selectedPaperPMID'))
             {
@@ -92,9 +94,14 @@
     function submit()
     {
         console.log(selectedData);
+        selectedData.reportedMetrics = selectedData.reportedMetrics.filter(elem => elem.value && elem.name);
+        fetch('/api/change/'+selectedPaper.id, {method: 'POST', body: JSON.stringify(selectedData), headers: {'Content-type': 'application/json'}})
+        .then((r) => {
+            loadData();
+        });
     }
 </script>
-<style type="text/css">
+<style>
 .input input
 {
     width: 80%;
@@ -110,12 +117,16 @@ input[type="radio"]
     <!-- Credit: https://icons.getbootstrap.com/icons/box-arrow-down/ (MIT license) -->
     <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktYm94LWFycm93LWRvd24iIHZpZXdCb3g9IjAgMCAxNiAxNiI+CiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMy41IDEwYS41LjUgMCAwIDEtLjUtLjV2LThhLjUuNSAwIDAgMSAuNS0uNWg5YS41LjUgMCAwIDEgLjUuNXY4YS41LjUgMCAwIDEtLjUuNWgtMmEuNS41IDAgMCAwIDAgMWgyQTEuNSAxLjUgMCAwIDAgMTQgOS41di04QTEuNSAxLjUgMCAwIDAgMTIuNSAwaC05QTEuNSAxLjUgMCAwIDAgMiAxLjV2OEExLjUgMS41IDAgMCAwIDMuNSAxMWgyYS41LjUgMCAwIDAgMC0xaC0yeiIvPgogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTcuNjQ2IDE1Ljg1NGEuNS41IDAgMCAwIC43MDggMGwzLTNhLjUuNSAwIDAgMC0uNzA4LS43MDhMOC41IDE0LjI5M1Y1LjVhLjUuNSAwIDAgMC0xIDB2OC43OTNsLTIuMTQ2LTIuMTQ3YS41LjUgMCAwIDAtLjcwOC43MDhsMyAzeiIvPgo8L3N2Zz4=">
 </svelte:head>
+<SvelteToast />
 <div class="flex gap-4 p-10 prose min-w-full">
     <div class="w-[15%]">
-        <h2 class="m-0">PMIDs</h2>
+        <h2 class="m-0">PMIDs ({papers.filter(elem => elem.structuredData).length}/{papers.length})</h2>
         <div class="flex flex-col gap-1">
             {#each papers as p}
                 <div class="cursor-pointer" on:click={selectPaper(p)}>
+                    {#if selectedPaper && p.id == selectedPaper.id}
+                        <b>&rarr;</b>
+                    {/if}
                     {p.pmid}
                     {#if p.structuredData}
                         <b>&check;</b>
@@ -149,7 +160,7 @@ input[type="radio"]
                 <div class="label">Compared with:</div>
                 <div class="input"><input type="text" bind:value={selectedData.comparedWith}></div>
                 <div class="label"># items:</div>
-                <div class="input"><input type="number" bind:value={selectedData.n}></div>
+                <div class="input"><input type="number" bind:value={selectedData.numItems}></div>
                 <div class="space-x-2">
                     <span>Items reported by: </span>
                     <input type="checkbox" bind:checked={selectedData.itemsReportedByPhysician} id="repPh"> <label for="repPh">Physician</label> 

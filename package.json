@@ -1,8 +1,18 @@
 {
+  "name":"data-extractor",
+  "version": "0.1.0",
+  "private": true,
   "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "PROD=1 vite build",
+    "start": "PROD=1 node server.js"
+  },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.9",
     "@types/node": "^18.8.4",
+    "@zerodevx/svelte-toast": "^0.8.0",
     "autoprefixer": "^10.4.12",
     "express": "^4.18.2",
     "postcss": "^8.4.17",

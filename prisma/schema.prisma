@@ -30,6 +30,7 @@ model StructuredData {
   id      Int   @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  exclude Boolean @default(false)
   paperId   Int @unique
   paper   Paper    @relation(fields: [paperId], references: [id])
   investigatedScore String?

@@ -21,6 +21,7 @@
         id?: Number,
         createdAt?: Date,
         updatedAt?: Date,
+        exclude?: Boolean,
         paperId: Number,
         paper?: Paper,
         investigatedScore?: String,
@@ -127,7 +128,11 @@ input[type="radio"]
                     {#if selectedPaper && p.id == selectedPaper.id}
                         <b>&rarr;</b>
                     {/if}
-                    {p.pmid}
+                    {#if p.structuredData && p.structuredData.exclude}
+                        <span class="line-through">{p.pmid}</span>
+                    {:else}
+                        {p.pmid}
+                    {/if}
                     {#if p.structuredData}
                         <b>&check;</b>
                     {/if}
@@ -139,10 +144,12 @@ input[type="radio"]
         {#if selectedPaper}
             <h2 class="mt-0">{selectedPaper.title}</h2>
             <div class="mb-2">{selectedPaper.authors}; {selectedPaper.journal}; {(new Date(selectedPaper.publishedAt)).toLocaleDateString('de-DE')}</div>
-            <div><a target="_blank" href="https://pubmed.ncbi.nlm.nih.gov/{selectedPaper.pmid}/">PubMed</a></div>
-            <div class="mb-2"><a target="_blank" href="https://sci-hub.se/{selectedPaper.doi}/">SciHub</a></div>
-            
             <div class="grid grid-cols-2 gap-2 w-[65%]">
+                <div><a target="_blank" href="https://pubmed.ncbi.nlm.nih.gov/{selectedPaper.pmid}/">PubMed</a></div>
+                <div><input type="checkbox" bind:checked={selectedData.exclude} id="excl"> <label for="excl">Exclude</label> </div>
+                <div class="mb-2"><a target="_blank" href="https://sci-hub.se/{selectedPaper.doi}/">SciHub</a></div>
+                <div></div>
+            
                 <div class="label">Investigated Score: </div>
                 <div class="input"><input type="text" bind:value={selectedData.investigatedScore}></div>
                 <div class="label">Score Abbv:</div>

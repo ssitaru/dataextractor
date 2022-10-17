@@ -1,10 +1,10 @@
-FROM mhart/alpine-node:16
+FROM mhart/alpine-node:14
 
 VOLUME /app/data
 
 COPY . /app
 WORKDIR /app
-RUN npm i && npm run build
+RUN npm ci && npm run build
 
 ENTRYPOINT npm run start
 

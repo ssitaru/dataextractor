@@ -41,11 +41,11 @@ model StructuredData {
   isConstructQoL Boolean @default(false)
   isConstructOther Boolean @default(false)
   subgroup String?
-  n String?
+  n Int?
   isComparative Boolean @default(false)
   isProposal Boolean @default(false)
   comparedWith String?
-  numItems String?
+  numItems Int?
   itemsReportedByPhysician Boolean @default(false)
   itemsReportedByPatient Boolean @default(false)
   itemsReportedByOther Boolean @default(false)

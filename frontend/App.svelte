@@ -170,7 +170,7 @@ input[type="radio"]
                 <div class="label">Subgroup/population:</div>
                 <div class="input"><input type="text" bind:value={selectedData.subgroup}></div>
                 <div class="label">Sample size:</div>
-                <div class="input"><input type="text" bind:value={selectedData.n}></div>
+                <div class="input"><input type="number" bind:value={selectedData.n}></div>
                 <div><input type="checkbox" bind:checked={selectedData.isComparative} id="isC"> <label for="isC">Comparative study</label> </div>
                 <div><input type="checkbox" bind:checked={selectedData.isProposal} id="isN"> <label for="isN">New proposal</label> </div>
                 <div class="label">Compared with:</div>

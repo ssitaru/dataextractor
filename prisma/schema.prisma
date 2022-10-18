@@ -37,6 +37,9 @@ model StructuredData {
   scoreAbbreviation String?
   disease String?
   construct String?
+  isConstructDisActivity Boolean @default(false)
+  isConstructQoL Boolean @default(false)
+  isConstructOther Boolean @default(false)
   subgroup String?
   n String?
   isComparative Boolean @default(false)
@@ -47,6 +50,8 @@ model StructuredData {
   itemsReportedByPatient Boolean @default(false)
   itemsReportedByOther Boolean @default(false)
   reportedMetrics String?
+  reliabilityMeasured Boolean @default(false)
+  measurementErrorMeasured Boolean @default(false)
   cosmin1_1 Int?
   cosmin1_2 Int?
   cosmin1_3 Int?

@@ -28,6 +28,9 @@
         scoreAbbreviation?: String,
         disease?: String,
         construct?: String,
+        isConstructQoL?: Boolean,
+        isConstructDisActivity?: Boolean,
+        isConstructOther?: Boolean,
         subgroup?: String,
         n?: Number,
         isComparative?: Boolean,
@@ -38,6 +41,8 @@
         itemsReportedByPatient?: Boolean,
         itemsReportedByOther?: Boolean,
         reportedMetrics: Metric[],
+        reliabilityMeasured: Boolean,
+        measurementErrorMeasured: Boolean,
         cosmin1_1?: Number,
         cosmin1_2?: Number,
         cosmin1_3?: Number,
@@ -157,7 +162,11 @@ input[type="radio"]
                 <div class="label">Disease or Indication:</div>
                 <div class="input"><input type="text" bind:value={selectedData.disease}></div>
                 <div class="label">Construct to be measured (dis. activity/QoL):</div>
-                <div class="input"><input type="text" bind:value={selectedData.construct}></div>
+                <div class="flex gap-x-2 items-center">
+                    <input type="checkbox" bind:checked={selectedData.isConstructDisActivity} id="isCDA"> <label for="isCDA">Dis. Activity</label>
+                    <input type="checkbox" bind:checked={selectedData.isConstructQoL} id="isCQOL"> <label for="isCQOL">QoL</label>
+                    <input type="checkbox" bind:checked={selectedData.isConstructOther} id="isCOther"> <label for="isCOther">Other</label>
+                </div>
                 <div class="label">Subgroup/population:</div>
                 <div class="input"><input type="text" bind:value={selectedData.subgroup}></div>
                 <div class="label">Sample size:</div>
@@ -187,9 +196,9 @@ input[type="radio"]
                 </div>
             </div>
             <h4>COSMIN Risk of Bias</h4>
-            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto">
+            <div class="flex gap-x-2 items-center font-bold"><input type="checkbox" bind:checked={selectedData.reliabilityMeasured} id="relMeas"> <label for="relMeas">study on reliability</label> </div>
+            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.reliabilityMeasured ? 'grid' : 'none'}" id="cosminSection1">
                 <!-- Section 1 -->
-                <div class="col-span-6 font-bold">For study on reliability</div>
                 <div>Were patients stable in the time between the repeated measurements on the construct to be measured?</div>
                 <div><input type="radio" bind:group={selectedData.cosmin1_1} value={4}>Yes</div>
                 <div><input type="radio" bind:group={selectedData.cosmin1_1} value={3}>Reason to assume</div>
@@ -252,8 +261,10 @@ input[type="radio"]
                 <div></div>
                 <div></div>
                 <div></div>
+            </div>
+            <div class="flex gap-x-2 items-center font-bold"><input type="checkbox" bind:checked={selectedData.measurementErrorMeasured} id="measEMeas"> <label for="measEMeas">study on measurement error</label> </div>
+            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.measurementErrorMeasured ? 'grid' : 'none'}" id="cosminSection2">
                 <!-- Section 2 -->
-                <div class="col-span-6 font-bold">For study on measurement error</div>
                 <!---->
                 <div>Were patients stable in the time between the repeated measurements on the construct to be measured?</div>
                 <div><input type="radio" bind:group={selectedData.cosmin2_1} value={4}>Yes</div>

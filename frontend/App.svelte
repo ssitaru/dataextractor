@@ -60,6 +60,7 @@
         cosmin2_6?: Number,
         cosmin2_7?: Number,
         cosmin2_8?: Number,
+        comments?: String
     }
 
     interface Metric
@@ -194,6 +195,8 @@ input[type="radio"]
                     <div class="text-xl cursor-pointer" on:click={() => {selectedData.reportedMetrics = [...selectedData.reportedMetrics ,{name: '', value: ''}]}}>&plus;</div>
                     </div>
                 </div>
+                <div>Comments</div>
+                <div><textarea bind:value={selectedData.comments} placeholder="notez"></textarea></div>
             </div>
             <h4>COSMIN Risk of Bias</h4>
             <div class="flex gap-x-2 items-center font-bold"><input type="checkbox" bind:checked={selectedData.reliabilityMeasured} id="relMeas"> <label for="relMeas">study on reliability</label> </div>
@@ -220,7 +223,7 @@ input[type="radio"]
                 <div><input type="radio" bind:group={selectedData.cosmin1_3} value={1}>No</div>
                 <div><input type="radio" bind:group={selectedData.cosmin1_3} value={0}>NA</div>
                 <!---->
-                <div>Was the time interval between the repeated measurements appropriate?</div>
+                <div>Did the professional(s) administer the measurement without knowledge of scores or values of other repeated measurement(s) in the same patients?</div>
                 <div><input type="radio" bind:group={selectedData.cosmin1_4} value={4}>Yes</div>
                 <div><input type="radio" bind:group={selectedData.cosmin1_4} value={3}>Reason to assume</div>
                 <div><input type="radio" bind:group={selectedData.cosmin1_4} value={2}>Unclear</div>

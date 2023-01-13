@@ -60,7 +60,21 @@
         cosmin2_6?: Number,
         cosmin2_7?: Number,
         cosmin2_8?: Number,
-        comments?: String
+        comments?: String,
+        contentValidityMeasured: Boolean,
+  constructValidityMeasured: Boolean ,
+  criterionValidityMeasured: Boolean,
+  responsivenessMeasured: Boolean ,
+  generalCosmin22: Number,
+  generalCosmin23: Number,
+  generalCosmin24: Number,
+  generalCosmin25: Number,
+  generalCosmin26: Number,
+  generalCosmin27: Number,
+  generalCosmin28: Number,
+  generalCosmin29: Number,
+  generalCosmin30: Number,
+  generalCosmin31: Number
     }
 
     interface Metric
@@ -198,7 +212,45 @@ input[type="radio"]
                 <div>Comments</div>
                 <div><textarea bind:value={selectedData.comments} placeholder="notez"></textarea></div>
             </div>
-            <h4>COSMIN Risk of Bias</h4>
+            <h4>Study content + risk of bias</h4>
+            <div class="flex gap-x-2 items-center font-bold"><input type="checkbox" bind:checked={selectedData.contentValidityMeasured} id="contValMeas"> <label for="contValMeas">study on content validity (are items okay for what they want to measure?)</label> </div>
+            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.contentValidityMeasured ? 'grid' : 'none'}" id="cosminSection1">
+                <!-- 2a-2c skipped, only relevant for patient-reported outcome measures -->
+                <div>Was an appropriate method used to ask professionals whether each item is relevant for the construct of interest?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin22} value={4}>Widely recognized or well justified method used</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin22} value={3}>Only quantitative (survey) method(s) used or reason to assume</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin22} value={2}>Not clear or doubtful whether the method was appropriate</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin22} value={1}>Method used not appropriate</div>
+                <div></div>
+                <!---->
+                <div>Were professionals from all relevant disciplines included?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin23} value={4}>Yes</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin23} value={3}>Reason to assume</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin23} value={2}>Doubtful/no time</div>
+                <div></div>
+                <div></div>
+                <!---->
+                <div>Was each item tested in an appropriate number of professionals? (&gt;= 7)</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin24} value={4}>Yes</div>
+                <div></div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin24} value={1}>No</div>
+                <div></div>
+                <!---->
+                <div>Was an appropriate approach used to analyse the data?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin25} value={4}>Yes</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin25} value={3}>Yes, but not clearly described</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin25} value={2}>Unclear</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin25} value={1}>Not appropriate</div>
+                <div></div>
+                <!---->
+                <div>Were at least two researchers involved in the analysis?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin26} value={4}>Yes</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin26} value={3}>Reason to assume</div>
+                <div><input type="radio" bind:group={selectedData.generalCosmin26} value={2}>Unclear or no</div>
+                <div></div>
+                <div></div>
+            </div>
             <div class="flex gap-x-2 items-center font-bold"><input type="checkbox" bind:checked={selectedData.reliabilityMeasured} id="relMeas"> <label for="relMeas">study on reliability</label> </div>
             <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.reliabilityMeasured ? 'grid' : 'none'}" id="cosminSection1">
                 <!-- Section 1 -->

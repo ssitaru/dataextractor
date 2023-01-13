@@ -52,6 +52,20 @@ model StructuredData {
   reportedMetrics String?
   reliabilityMeasured Boolean @default(false)
   measurementErrorMeasured Boolean @default(false)
+  contentValidityMeasured Boolean @default(false)
+  constructValidityMeasured Boolean @default(false)
+  criterionValidityMeasured Boolean @default(false)
+  responsivenessMeasured Boolean @default(false)
+  generalCosmin22 Int?
+  generalCosmin23 Int?
+  generalCosmin24 Int?
+  generalCosmin25 Int?
+  generalCosmin26 Int?
+  generalCosmin27 Int?
+  generalCosmin28 Int?
+  generalCosmin29 Int?
+  generalCosmin30 Int?
+  generalCosmin31 Int?
   cosmin1_1 Int?
   cosmin1_2 Int?
   cosmin1_3 Int?
@@ -70,4 +84,5 @@ model StructuredData {
   cosmin2_7 Int?
   cosmin2_8 Int?
   comments String?
+
 }

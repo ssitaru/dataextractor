@@ -1,0 +1,24 @@
+-- AlterTable
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_1" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_10" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_11" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_12" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_13" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_2" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_3" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_4" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_5" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_6" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_7" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_8" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB10_9" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB8_1" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB8_2" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB8_3" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB9_1" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB9_2" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB9_3" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB9_4" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB9_5" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB9_6" INTEGER;
+ALTER TABLE "StructuredData" ADD COLUMN "generalCosminB9_7" INTEGER;

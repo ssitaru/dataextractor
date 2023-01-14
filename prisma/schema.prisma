@@ -66,6 +66,29 @@ model StructuredData {
   generalCosmin29 Int?
   generalCosmin30 Int?
   generalCosmin31 Int?
+  generalCosminB8_1 Int?
+  generalCosminB8_2 Int?
+  generalCosminB8_3 Int?
+  generalCosminB9_1 Int?
+  generalCosminB9_2 Int?
+  generalCosminB9_3 Int?
+  generalCosminB9_4 Int?
+  generalCosminB9_5 Int?
+  generalCosminB9_6 Int?
+  generalCosminB9_7 Int?
+  generalCosminB10_1 Int?
+  generalCosminB10_2 Int?
+  generalCosminB10_3 Int?
+  generalCosminB10_4 Int?
+  generalCosminB10_5 Int?
+  generalCosminB10_6 Int?
+  generalCosminB10_7 Int?
+  generalCosminB10_8 Int?
+  generalCosminB10_9 Int?
+  generalCosminB10_10 Int?
+  generalCosminB10_11 Int?
+  generalCosminB10_12 Int?
+  generalCosminB10_13 Int?
   cosmin1_1 Int?
   cosmin1_2 Int?
   cosmin1_3 Int?

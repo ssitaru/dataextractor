@@ -74,7 +74,30 @@
   generalCosmin28: Number,
   generalCosmin29: Number,
   generalCosmin30: Number,
-  generalCosmin31: Number
+  generalCosmin31: Number,
+  generalCosminB8_1 : Number,
+  generalCosminB8_2 : Number,
+  generalCosminB8_3 : Number,
+  generalCosminB9_1 : Number,
+  generalCosminB9_2 : Number,
+  generalCosminB9_3 : Number,
+  generalCosminB9_4 : Number,
+  generalCosminB9_5 : Number,
+  generalCosminB9_6 : Number,
+  generalCosminB9_7 : Number,
+  generalCosminB10_1 : Number,
+  generalCosminB10_2 : Number,
+  generalCosminB10_3 : Number,
+  generalCosminB10_4 : Number,
+  generalCosminB10_5 : Number,
+  generalCosminB10_6 : Number,
+  generalCosminB10_7 : Number,
+  generalCosminB10_8 : Number,
+  generalCosminB10_9 : Number,
+  generalCosminB10_10 : Number,
+  generalCosminB10_11 : Number,
+  generalCosminB10_12 : Number,
+  generalCosminB10_13 : Number
     }
 
     interface Metric
@@ -214,8 +237,8 @@ input[type="radio"]
             </div>
             <h4>Study content + risk of bias</h4>
             <div class="flex gap-x-2 items-center font-bold"><input type="checkbox" bind:checked={selectedData.contentValidityMeasured} id="contValMeas"> <label for="contValMeas">study on content validity (are items okay for what they want to measure?)</label> </div>
-            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.contentValidityMeasured ? 'grid' : 'none'}" id="cosminSection1">
-                <!-- 2a-2c skipped, only relevant for patient-reported outcome measures -->
+            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.contentValidityMeasured ? 'grid' : 'none'}">
+                <!--  -->
                 <div>Was an appropriate method used to ask professionals whether each item is relevant for the construct of interest?</div>
                 <div><input type="radio" bind:group={selectedData.generalCosmin22} value={4}>Widely recognized or well justified method used</div>
                 <div><input type="radio" bind:group={selectedData.generalCosmin22} value={3}>Only quantitative (survey) method(s) used or reason to assume</div>
@@ -249,6 +272,87 @@ input[type="radio"]
                 <div><input type="radio" bind:group={selectedData.generalCosmin26} value={3}>Reason to assume</div>
                 <div><input type="radio" bind:group={selectedData.generalCosmin26} value={2}>Unclear or no</div>
                 <div></div>
+                <div></div>
+            </div>
+            <div class="flex gap-x-2 items-center font-bold"><input type="checkbox" bind:checked={selectedData.constructValidityMeasured} id="constValMeas"> <label for="constValMeas">study on construct validity</label> </div>
+            <div class="mt-2 mb-2" style="display: {selectedData.constructValidityMeasured ? 'block' : 'none'}">comparison with other instrument</div>
+            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.constructValidityMeasured ? 'grid' : 'none'}">
+                <!--  -->
+                <div> Is it clear what the comparator instrument(s) measure(s)? </div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_1} value={4}>Yes</div>
+                <div></div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_1} value={1}>No</div>
+                <div></div>
+                <!---->
+                <div>Were the measurement properties of the comparator instrument(s) sufficient?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_2} value={4}>Yes, study population similar</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_2} value={3}>Yes, but not sure if they apply to study population</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_2} value={2}>Some information</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_2} value={1}>No info or insufficient</div>
+                <div></div>
+                <!---->
+                <div>Was the statistical method appriopriate for the hypotheses to be tested?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_3} value={4}>Yes</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_3} value={3}>Reason to assume</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_3} value={2}>Not optimal</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_3} value={1}>Not appropriate</div>
+                <div></div>
+                <!---->
+                <div>Were there any other important flaws in the design or statistical methods of the study?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_4} value={4}>No</div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_4} value={2}>Minor flaws</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_4} value={1}>Other flaws</div>
+                <div></div>
+            </div>
+            <div class="mt-2 mb-2" style="display: {selectedData.constructValidityMeasured ? 'block' : 'none'}">comparison between subgroups</div>
+            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.constructValidityMeasured ? 'grid' : 'none'}">
+                <!---->
+                <div>Was an adequate description provided of important characteristics of the subgroups?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_5} value={4}>Yes, adequate</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_5} value={3}>Yes, most important characteristics described</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_5} value={2}>No</div>
+                <div></div>
+                <div></div>
+                <!---->
+                <div>Was the statistical method appriopriate for the hypotheses to be tested?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_6} value={4}>Yes</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_6} value={3}>Reason to assume</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_6} value={2}>Not optimal</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_6} value={1}>Not appropriate</div>
+                <div></div>
+                <!---->
+                <div>Were there any other important flaws in the design or statistical methods of the study?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_7} value={4}>No</div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_7} value={2}>Minor flaws</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB9_7} value={1}>Other flaws</div>
+                <div></div>
+            </div>
+            
+            <div class="flex gap-x-2 items-center font-bold"><input type="checkbox" bind:checked={selectedData.criterionValidityMeasured} id="critValMeas"> <label for="critValMeas">study on criterion validity</label> </div>
+            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.criterionValidityMeasured ? 'grid' : 'none'}">
+                <!--  -->
+                <div>For continuous scores: Were correlations, or the area under the receiver operating curve calculated?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB8_1} value={4}>Correlation or AUC yes</div>
+                <div></div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB8_1} value={1}>NOT calculated</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB8_1} value={0}>N/A</div>
+                <!---->
+                <div>For dichotomous scores: Were sensitivity and specificity determined?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB8_2} value={4}>Sens and spec yes</div>
+                <div></div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB8_2} value={1}>NOT calculated</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB8_2} value={0}>N/A</div>
+                <!---->
+                <div>Were there any other important flaws in the design or statistical methods of the study?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB8_3} value={4}>No other important flaws</div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB8_3} value={2}>Minor flaws</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB8_3} value={1}>Major</div>
                 <div></div>
             </div>
             <div class="flex gap-x-2 items-center font-bold"><input type="checkbox" bind:checked={selectedData.reliabilityMeasured} id="relMeas"> <label for="relMeas">study on reliability</label> </div>
@@ -376,6 +480,110 @@ input[type="radio"]
                 <div></div>
                 <div></div>
                 <div></div>
+            </div>
+            <div class="flex gap-x-2 items-center font-bold"><input type="checkbox" bind:checked={selectedData.responsivenessMeasured} id="resMeas"> <label for="resMeas">study on responsiveness</label> </div>
+            <div class="mt-2 mb-2 italic" style="display: {selectedData.responsivenessMeasured ? 'block' : 'none'}">comparison to gold standard</div>
+            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.responsivenessMeasured ? 'grid' : 'none'}">
+                <!--  -->
+                <div>For continuous scores: Were correlations between change scores, or the area under the Receiver Operator Curve (ROC) curve calculated?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_1} value={4}>Correlation or ROC calculated</div>
+                <div></div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_1} value={1}>Not calculated</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_1} value={0}>N/A</div>
+                <!--  -->
+                <div>For dichotomous scales: Were sensitivity and specificity (changed versus not changed) determined?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_1} value={4}>Sens/spec calculated</div>
+                <div></div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_1} value={1}>Not calculated</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_1} value={0}>N/A</div>
+                <!---->
+                <div>Were there any other important flaws in the design or statistical methods of the study?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_3} value={4}>No</div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_3} value={2}>Minor flaws</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_3} value={1}>Other flaws</div>
+                <div></div>
+            </div>
+            <div class="mt-2 mb-2 italic" style="display: {selectedData.responsivenessMeasured ? 'block' : 'none'}">comparison to other instrument</div>
+            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.responsivenessMeasured ? 'grid' : 'none'}">
+                <!--  -->
+                <div>Is it clear what the comparator instrument(s) measure(s)?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_4} value={4}>Yes</div>
+                <div></div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_4} value={1}>No</div>
+                <div></div>
+                <!---->
+                <div>Were the measurement properties of the comparator instrument(s) sufficient?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_5} value={4}>Yes, study population similar</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_5} value={3}>Yes, but not sure if they apply to study population</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_5} value={2}>Some information</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_5} value={1}>No info or insufficient</div>
+                <div></div>
+                 <!---->
+                 <div>Was the statistical method appriopriate for the hypotheses to be tested?</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_6} value={4}>Yes</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_6} value={3}>Reason to assume</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_6} value={2}>Not optimal</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_6} value={1}>Not appropriate</div>
+                 <div></div>
+                 <!---->
+                 <div>Were there any other important flaws in the design or statistical methods of the study?</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_7} value={4}>No</div>
+                 <div></div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_7} value={2}>Minor flaws</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_7} value={1}>Other flaws</div>
+                 <div></div>
+            </div>
+            <div class="mt-2 mb-2 italic" style="display: {selectedData.responsivenessMeasured ? 'block' : 'none'}">comparison between subgroups</div>
+            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.responsivenessMeasured ? 'grid' : 'none'}">
+                <!--  -->
+                <div>Was an adequate description provided of important characteristics of the subgroups?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_8} value={4}>Yes</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_8} value={3}>Most important characteristics</div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_8} value={1}>No</div>
+                <div></div>
+                <!---->
+                 <div>Was the statistical method appriopriate for the hypotheses to be tested?</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_9} value={4}>Yes</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_9} value={3}>Reason to assume</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_9} value={2}>Not optimal</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_9} value={1}>Not appropriate</div>
+                 <div></div>
+                 <!---->
+                 <div>Were there any other important flaws in the design or statistical methods of the study?</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_10} value={4}>No</div>
+                 <div></div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_10} value={2}>Minor flaws</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_10} value={1}>Other flaws</div>
+                 <div></div>
+            </div>
+            <div class="mt-2 mb-2 italic" style="display: {selectedData.responsivenessMeasured ? 'block' : 'none'}">comparison before and after intervention</div>
+            <div class="grid gap-2 w-[75%]" style="grid-template-columns: 40% auto auto auto auto auto; display: {selectedData.responsivenessMeasured ? 'grid' : 'none'}">
+                <!--  -->
+                <div>Was an adequate description provided of the intervention?</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_11} value={4}>Yes</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_11} value={3}>Most important characteristics</div>
+                <div></div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_11} value={1}>No</div>
+                <div></div>
+                <!---->
+                 <div>Was the statistical method appriopriate for the hypotheses to be tested?</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_12} value={4}>Yes</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_12} value={3}>Reason to assume</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_12} value={2}>Not optimal</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_12} value={1}>Not appropriate</div>
+                 <div></div>
+                 <!---->
+                 <div>Were there any other important flaws in the design or statistical methods of the study?</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_13} value={4}>No</div>
+                 <div></div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_13} value={2}>Minor flaws</div>
+                 <div><input type="radio" bind:group={selectedData.generalCosminB10_13} value={1}>Other flaws</div>
+                 <div></div>
             </div>
             <div class="mt-4"><button class="px-3 text-white bg-lightblue rounded-md" on:click={submit} title="submit">Hit it</button></div>
         {:else}

@@ -493,11 +493,11 @@ input[type="radio"]
                 <div><input type="radio" bind:group={selectedData.generalCosminB10_1} value={0}>N/A</div>
                 <!--  -->
                 <div>For dichotomous scales: Were sensitivity and specificity (changed versus not changed) determined?</div>
-                <div><input type="radio" bind:group={selectedData.generalCosminB10_1} value={4}>Sens/spec calculated</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_2} value={4}>Sens/spec calculated</div>
                 <div></div>
                 <div></div>
-                <div><input type="radio" bind:group={selectedData.generalCosminB10_1} value={1}>Not calculated</div>
-                <div><input type="radio" bind:group={selectedData.generalCosminB10_1} value={0}>N/A</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_2} value={1}>Not calculated</div>
+                <div><input type="radio" bind:group={selectedData.generalCosminB10_2} value={0}>N/A</div>
                 <!---->
                 <div>Were there any other important flaws in the design or statistical methods of the study?</div>
                 <div><input type="radio" bind:group={selectedData.generalCosminB10_3} value={4}>No</div>
